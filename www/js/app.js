@@ -17,7 +17,6 @@ var app = {
 	},
 	
 	init:function() {
-		// alert(3)
 		console.log('initializing');
 		app.loadQueue = [
 			{uid:'cart', url:'tmpl-cart.html'},
@@ -171,7 +170,8 @@ var app = {
 		console.log('displaying cart view');
 		
 		var total = shopify.total();
-		var data = {products: shopify.listCart(), total:total};
+		var products = shopify.listCart();
+		var data = {products:products, item_count:products.length, total:total};
 		app.renderView('cart', data);
 		
 		$('.back').click( app.showMainView );

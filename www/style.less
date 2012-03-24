@@ -104,8 +104,9 @@ hr {
 .header h2 {
 	position: absolute;
 	top: 14px;
-	left: 100px;
-	right: 100px;
+	left: 80px;
+	right: 80px;
+	font-size: 22px;
 	text-align: center;
 }
 
@@ -193,15 +194,18 @@ hr {
 
 .polaroid.mini {
 	-webkit-transform: rotate(0deg);
-	display: inline-block;
+/*	display: inline-block;*/
 	width: 120px;
+	height: 90px;
 	overflow: hidden;
+	float: left;
 	margin: 6px 2px;
 }
 
 .polaroid.mini .inner {
 	min-height: 10px;
 	height: 90px;
+	width: 100%;
 	overflow: hidden;
 }
 
@@ -212,6 +216,7 @@ hr {
 .polaroid.micro {
 	width: 100px;
 	padding: 4px;
+	float: none;
 }
 
 .polaroid.micro .inner {
@@ -240,10 +245,14 @@ hr {
 	bottom: 0px;
 } 
 
+.cart-item {
+	position: relative;
+}
+
 .cart-label {
-	float: right;
-	width: 150px;
-	padding-top: @margin;
+	position: absolute;
+	left: 130px;
+	top: 20px;
 }
 
 .cart-label label, .total-label {
@@ -306,7 +315,7 @@ button.large.text {
 	padding: 0 10px;
 }
 
-button .icon {
+button .icon, .icon {
 	width: 30px;
 	height: 30px;
 	position: absolute;

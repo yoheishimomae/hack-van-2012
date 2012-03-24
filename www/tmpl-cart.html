@@ -1,23 +1,25 @@
 <div class="header">
     <button class="back"><span class="inner">Back</span></button>
-    <h2>Your Cart</h2>
+    <h2>Your Cart ({{item_count}})</h2>
 </div>
 
 <div class="wrap has-header">
     
     {{#products}}
     
-    <div class="cart-label">
-        <label>by {{vendor}}</label>
-        <label>{{#variants}}${{price}}{{/variants}}</label>
-    </div>
+    <div class="cart-item">
+        <div class="cart-label">
+            <label>by {{vendor}}</label>
+            <label>{{#variants}}${{price}}{{/variants}}</label>
+        </div>
     
-    <div class="polaroid mini micro" data-id="{{id}}">
-        <div class="inner">
-            <div class="mask"></div>
-            {{#images}}
-                <img src="{{src}}"/>
-            {{/images}}
+        <div class="polaroid mini micro" data-id="{{id}}">
+            <div class="inner">
+                <div class="mask"></div>
+                {{#images}}
+                    <img src="{{src}}"/>
+                {{/images}}
+            </div>
         </div>
     </div>
     
