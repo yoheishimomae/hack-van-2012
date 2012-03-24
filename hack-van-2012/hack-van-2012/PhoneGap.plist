@@ -48,6 +48,8 @@
 		<string>PGCapture</string>
 		<key>com.phonegap.splashscreen</key>
 		<string>PGSplashScreen</string>
+		<key>ChildBrowserCommand</key>
+		<string>ChildBrowserCommand</string>
 	</dict>
 	<key>ExternalHosts</key>
 	<array>

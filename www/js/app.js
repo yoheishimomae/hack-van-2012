@@ -24,6 +24,7 @@ var app = {
 			{uid:'picker', url:'tmpl-picker.html'}
 		];
 		app.template = {};
+		// window.plugins.childBrowser.onClose = function (){ViewScroller.isOpen = false};
 		
 		app.loadTemplate();
 	},
@@ -185,7 +186,9 @@ var app = {
 		$('.back').click( app.showMainView );
 		$('.checkout').click( function(e){
 			console.log('checking out');
-			shopify.checkout();
+			// shopify.checkout();
+			
+			window.plugins.childBrowser.showWebPage('http://apple.com');
 		} );
 		$('.cart-item button').click( function(e) {
 			var uid = $(this).attr('data-id');

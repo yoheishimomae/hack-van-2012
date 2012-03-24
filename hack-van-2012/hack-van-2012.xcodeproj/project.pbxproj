@@ -34,6 +34,10 @@
 		5F2E0EC6151E7FCE00A74A75 /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E0EC5151E7FCE00A74A75 /* PhoneGap.plist */; };
 		5F2E0ECA151E7FCE00A74A75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E0EC9151E7FCE00A74A75 /* AppDelegate.m */; };
 		5F2E0ED3151E7FF600A74A75 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E0ED2151E7FF600A74A75 /* www */; };
+		5F2E0EDD151E8BE100A74A75 /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E0ED7151E8BE100A74A75 /* ChildBrowser.bundle */; };
+		5F2E0EDE151E8BE100A74A75 /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E0ED9151E8BE100A74A75 /* ChildBrowserCommand.m */; };
+		5F2E0EDF151E8BE100A74A75 /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E0EDB151E8BE100A74A75 /* ChildBrowserViewController.m */; };
+		5F2E0EE0151E8BE100A74A75 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2E0EDC151E8BE100A74A75 /* ChildBrowserViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,12 @@
 		5F2E0EC9151E7FCE00A74A75 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		5F2E0ECC151E7FCF00A74A75 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		5F2E0ED2151E7FF600A74A75 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
+		5F2E0ED7151E8BE100A74A75 /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
+		5F2E0ED8151E8BE100A74A75 /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
+		5F2E0ED9151E8BE100A74A75 /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
+		5F2E0EDA151E8BE100A74A75 /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
+		5F2E0EDB151E8BE100A74A75 /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
+		5F2E0EDC151E8BE100A74A75 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +154,7 @@
 		5F2E0EA3151E7FCE00A74A75 /* hack-van-2012 */ = {
 			isa = PBXGroup;
 			children = (
+				5F2E0ED6151E8BE100A74A75 /* ChildBrowser */,
 				5F2E0EAC151E7FCE00A74A75 /* PhoneGap.framework */,
 				5F2E0EAE151E7FCE00A74A75 /* Resources */,
 				5F2E0EC7151E7FCE00A74A75 /* Classes */,
@@ -229,6 +240,19 @@
 			name = Plugins;
 			sourceTree = "<group>";
 		};
+		5F2E0ED6151E8BE100A74A75 /* ChildBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				5F2E0ED7151E8BE100A74A75 /* ChildBrowser.bundle */,
+				5F2E0ED8151E8BE100A74A75 /* ChildBrowserCommand.h */,
+				5F2E0ED9151E8BE100A74A75 /* ChildBrowserCommand.m */,
+				5F2E0EDA151E8BE100A74A75 /* ChildBrowserViewController.h */,
+				5F2E0EDB151E8BE100A74A75 /* ChildBrowserViewController.m */,
+				5F2E0EDC151E8BE100A74A75 /* ChildBrowserViewController.xib */,
+			);
+			path = ChildBrowser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +318,8 @@
 				5F2E0EC4151E7FCE00A74A75 /* Capture.bundle in Resources */,
 				5F2E0EC6151E7FCE00A74A75 /* PhoneGap.plist in Resources */,
 				5F2E0ED3151E7FF600A74A75 /* www in Resources */,
+				5F2E0EDD151E8BE100A74A75 /* ChildBrowser.bundle in Resources */,
+				5F2E0EE0151E8BE100A74A75 /* ChildBrowserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +348,8 @@
 			files = (
 				5F2E0EAA151E7FCE00A74A75 /* main.m in Sources */,
 				5F2E0ECA151E7FCE00A74A75 /* AppDelegate.m in Sources */,
+				5F2E0EDE151E8BE100A74A75 /* ChildBrowserCommand.m in Sources */,
+				5F2E0EDF151E8BE100A74A75 /* ChildBrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
