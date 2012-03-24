@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC70ACCB151E946700612E81 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC70ACCA151E946700612E81 /* icon.png */; };
+		AC70ACCE151E948600612E81 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AC70ACCD151E948600612E81 /* Default.png */; };
 		ACC225FF151E8DFC00498B25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC225FE151E8DFC00498B25 /* Foundation.framework */; };
 		ACC22601151E8DFC00498B25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC22600151E8DFC00498B25 /* UIKit.framework */; };
 		ACC22603151E8DFC00498B25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC22602151E8DFC00498B25 /* CoreGraphics.framework */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC70ACCA151E946700612E81 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AC70ACCD151E948600612E81 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ACC225FA151E8DFC00498B25 /* Dressing Room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dressing Room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC225FE151E8DFC00498B25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACC22600151E8DFC00498B25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -121,6 +125,8 @@
 		ACC225EC151E8DFC00498B25 = {
 			isa = PBXGroup;
 			children = (
+				AC70ACCD151E948600612E81 /* Default.png */,
+				AC70ACCA151E946700612E81 /* icon.png */,
 				ACC2264C151E8E1300498B25 /* www */,
 				ACC22618151E8DFC00498B25 /* Dressing Room */,
 				ACC225FD151E8DFC00498B25 /* Frameworks */,
@@ -322,6 +328,8 @@
 				ACC2264D151E8E1300498B25 /* www in Resources */,
 				ACC22654151E8EB000498B25 /* ChildBrowser.bundle in Resources */,
 				ACC22657151E8EB000498B25 /* ChildBrowserViewController.xib in Resources */,
+				AC70ACCB151E946700612E81 /* icon.png in Resources */,
+				AC70ACCE151E948600612E81 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +517,7 @@
 				ACC2264B151E8DFD00498B25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
