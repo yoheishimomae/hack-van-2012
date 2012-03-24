@@ -9,15 +9,15 @@ var app = {
 	
 	preInit:function() {
 		console.log('pre-initializing');
-		setTimeout(function() {
-			if (navigator.userAgent.search('Mac OS X') > 0 && navigator.userAgent.search(/iphone|ipad/i) == -1)
-				app.init();
-			else
-				document.addEventListener("deviceready", app.init, false);
-		}, 150);
+		if (navigator.userAgent.search('Mac OS X') > 0 && navigator.userAgent.search(/iphone|ipad/i) == -1)
+			app.init();
+		else {
+			document.addEventListener("deviceready", app.init, false);
+		}
 	},
 	
 	init:function() {
+		// alert(3)
 		console.log('initializing');
 		app.loadQueue = [
 			{uid:'cart', url:'tmpl-cart.html'},

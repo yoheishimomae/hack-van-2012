@@ -20,6 +20,10 @@ a img{border:none}
 
 #wpadminbar {display:none;}
 
+* {
+/*	-webkit-tap-highlight-color: rgba(0,0,0,0);*/
+}
+
 
 /*----------------------------------------------------------------
 	Less Vars
@@ -191,11 +195,14 @@ hr {
 	-webkit-transform: rotate(0deg);
 	display: inline-block;
 	width: 120px;
+	overflow: hidden;
+	margin: 6px 2px;
 }
 
 .polaroid.mini .inner {
 	min-height: 10px;
 	height: 90px;
+	overflow: hidden;
 }
 
 .polaroid.mini img {
@@ -213,12 +220,12 @@ hr {
 
 .polaroid:not(.mini) {
 	position: absolute;
-	bottom: 245px;
-	right: 30px;
+	bottom: 230px;
+	right: 40px;
 }
 
 .polaroid.pants:not(.mini) {
-	bottom: 40px;
+	bottom: 30px;
 	right: 50px;
 }
 
@@ -262,8 +269,8 @@ hr {
 
 .button-wrap {
 	position: fixed;
-	bottom: @margin;
-	right: @margin;
+	bottom: @margin/2;
+	right: @margin/2;
 	z-index: 3;
 }
 
