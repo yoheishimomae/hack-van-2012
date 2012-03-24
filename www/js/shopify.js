@@ -79,7 +79,7 @@
         var total = 0;
         for (var i = 0, l = this.cart.length; i < l; i++) {
             var product = this.cart[i];
-            var value = parseFloat(product.variants.price);
+            var value = parseFloat(product.variants[0].price);
             total += value;
         }
         
