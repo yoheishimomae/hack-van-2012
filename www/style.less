@@ -1,0 +1,195 @@
+/* RESET */
+html, body, div, span, applet, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
+a, abbr, acronym, address, big, cite, code, 
+del, dfn, em, font, img, ins, kbd, q, s, samp, 
+small, strike, strong, sub, sup, tt, var, 
+b, u, i, center, 
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td{background:transparent; border:0; margin:0; padding:0; vertical-align:baseline}
+body{line-height:1}
+h1, h2, h3, h4, h5, h6{clear:both; font-weight:normal}
+ol, ul{list-style:none}
+blockquote{quotes:none}
+blockquote:before, blockquote:after{content:''; content:none}
+del{text-decoration:line-through}
+
+table{border-collapse:collapse; border-spacing:0}
+a img{border:none}
+
+#wpadminbar {display:none;}
+
+
+/*----------------------------------------------------------------
+	Less Vars
+----------------------------------------------------------------*/
+
+@pol-pad: 8px;
+@margin:	16px;
+
+/*----------------------------------------------------------------
+	General 
+----------------------------------------------------------------*/
+/*html, body, #wrap {height: 100%;}*/
+
+body {
+/*	font-family: 'MarkerFelt';*/
+	font-family: "Marker Felt", "HelveticaNeue-Light", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	font-size: 16px; font-weight: 300;
+	background: url(img/bg.jpg) 0 0 fixed;
+}
+
+h2 {
+	color: #fff;
+	font-size: 24px;
+	text-shadow: rgba(0,0,0,0.5) 0 4px 8px;
+	margin-bottom: 8px;
+	font-weight: normal;
+}
+
+.al-right {
+	text-align: right;
+}
+
+
+/*----------------------------------------------------------------
+	Header
+----------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------
+	Views
+----------------------------------------------------------------*/
+
+.wrap {
+	padding: @margin;
+}
+
+
+/*----------------------------------------------------------------
+	Components
+----------------------------------------------------------------*/
+
+.polaroid {
+	box-shadow: rgba(0,0,0,0.5) 0 4px 8px;
+	background: #fff;
+	padding: @pol-pad @pol-pad @pol-pad*3;
+	width: 260px;
+	-webkit-transform: rotate(2deg);
+	z-index: 4;
+	position: relative;
+	margin: 6px 0;
+}
+
+.polaroid:active {
+	background: #aaa;
+}
+
+.polaroid + .polaroid {
+	-webkit-transform: rotate(-1deg);
+	z-index: 3;
+}
+
+.polaroid .inner {
+	min-height: 140px;
+	max-height: 180px;
+	background: #666 50% 50% no-repeat;
+	overflow: hidden;
+	position: relative;
+}
+.polaroid.shirt .inner {background-image: url(img/empty_shirt.png);}
+.polaroid.pants .inner {background-image: url(img/empty_pants.png);}
+
+.polaroid img {
+	display: none;
+	width: 100%;
+}
+
+.polaroid .mask {
+	box-shadow: inset rgba(0,0,0,0.5) 0 2px 4px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: -webkit-gradient(linear, left top, right bottom, 
+		color-stop(0%,rgba(0,0,0,0.1)),
+		color-stop(49%,rgba(255,255,255,0)), 
+		color-stop(51%,rgba(255,255,255,0.2)), 
+		color-stop(100%,rgba(255,255,255,0)));
+}
+
+.polaroid label {
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	bottom: 4px;
+	text-align: center;
+}
+
+/*----------------------------------------------------------------
+	UI
+----------------------------------------------------------------*/
+@bt-size: 52px;
+@cl-key-high: #729eb9;
+@cl-key-mid: #1a628f;
+@cl-key-low: #183f59;
+
+
+.button-wrap {
+	position: fixed;
+	bottom: @margin;
+	right: @margin;
+}
+
+button {
+	min-width: @bt-size;
+	min-height: @bt-size;
+	background: -webkit-gradient(linear, left top, left bottom, 
+		color-stop(0%,@cl-key-high), 
+		color-stop(48%,@cl-key-mid), 
+		color-stop(100%,@cl-key-low));
+	border: none;
+	border-radius: @bt-size/2;
+	box-shadow: rgba(0,0,0,0.5) 0 5px 4px;
+	border-top: #d2eafa 1px solid;
+	border-bottom: #0b202d 1px solid;
+}
+
+button:active {
+	background: -webkit-gradient(linear, left top, left bottom, 
+		color-stop(0%, darken( @cl-key-high, 6%) ), 
+		color-stop(48%, darken( @cl-key-mid, 6%) ), 
+		color-stop(100%, darken( @cl-key-low, 6%) ));
+}
+
+
+/*----------------------------------------------------------------
+	UI - Misc
+----------------------------------------------------------------*/
+
+@-webkit-keyframes spinner {
+	0%   { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+.spinner {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+}
+
+.spinner .inner {
+	width: 40px;
+	height: 40px;
+	margin-left: -20px;
+	margin-top: -20px;
+	text-align: center;
+	background: url(img/spinner.png) no-repeat 0 0;
+    -webkit-animation: spinner 1s infinite linear;
+}
+
