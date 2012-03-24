@@ -68,10 +68,16 @@
     };
     
     // generate checkout permalink
-    Shopify.prototype.checkout = function() {
+    Shopify.prototype.checkout = function(callback) {
+        var items = [];
+        
         for (var i = 0, l = this.cart.length; i < l; i++) {
-            
+            var product = this.cart[i];
+            items.push( product.variants[0].id + ':1' );
         }
+        
+        var url = 'http://hack-van-2012.myshopify.com' + '/cart/' + items.join(',');
+        callback(url);
     };
     
     // get total price
