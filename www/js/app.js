@@ -175,5 +175,9 @@ var app = {
 		app.renderView('cart', data);
 		
 		$('.back').click( app.showMainView );
+		$('.checkout').click( function(e){
+				console.log('checking out');
+				shopify.checkout();
+		} );
 	}
 };
