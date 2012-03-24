@@ -1,23 +1,40 @@
 <div class="wrap">
     <h2 class="al-right">Create your style</h2>
     <div class="polaroid shirt">
-        <div class="inner">
-            <div class="mask"></div>
-            <img src="prd/hmprod1.jpeg"/>
-        </div>
-        <label>Shirts</label>
+        {{^shirt}}
+            <div class="inner">
+                <div class="mask"></div>
+            </div>
+            <label>Shirt</label>
+        {{/shirt}}
+        {{#shirt}}
+            <div class="inner">
+                <div class="mask"></div>
+                {{#images}}<img src="{{src}}"/>{{/images}}
+            </div>
+            <label>Shirt {{#variants}}${{price}}{{/variants}}</label>        
+        {{/shirt}}
     </div>
     
     <div class="polaroid pants">
-        <div class="inner">
-            <div class="mask"></div>
-        </div>
-        <label>Pants</label>
+        {{^pants}}
+            <div class="inner">
+                <div class="mask"></div>
+            </div>
+            <label>Pants</label>
+        {{/pants}}
+        {{#pants}}
+            <div class="inner">
+                <div class="mask"></div>
+                {{#images}}<img src="{{src}}"/>{{/images}}
+            </div>
+            <label>Pants {{#variants}}${{price}}{{/variants}}</label>        
+        {{/pants}}
     </div>
     
     <div class="button-wrap">
-        <button class="large"></button>
-        <button class="large"></button>
+        <button class="large add-cart">+</button>
+        <button class="large show-cart"></button>
     </div>
 
 </div>

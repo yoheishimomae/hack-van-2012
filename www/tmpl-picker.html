@@ -1,17 +1,20 @@
 <div class="header">
     <button class="back"><span class="inner">Back</span></button>
+    <h2>Pick a Shirt</h2>
 </div>
-
 
 <div class="wrap has-header">
     
     {{#products}}
     
-    <div class="polaroid mini">
+    <div class="polaroid mini" data-id="{{id}}">
         <div class="inner">
             <div class="mask"></div>
+            {{#images}}
+                <img src="{{src}}"/>
+            {{/images}}
         </div>
-        <label>{{price}}</label>
+        <label>{{#variants}}${{price}}{{/variants}}</label>
     </div>
     
     {{/products}}

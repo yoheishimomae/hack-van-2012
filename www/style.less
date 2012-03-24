@@ -86,6 +86,14 @@ h2 {
 	margin-top: @header-h + @margin;
 }
 
+.header h2 {
+	position: absolute;
+	top: 14px;
+	left: 100px;
+	right: 100px;
+	text-align: center;
+}
+
 /*----------------------------------------------------------------
 	Views
 ----------------------------------------------------------------*/
@@ -103,7 +111,7 @@ h2 {
 	box-shadow: rgba(0,0,0,0.5) 0 4px 8px;
 	background: #fff;
 	padding: @pol-pad @pol-pad @pol-pad*3;
-	width: 260px;
+	width: 245px;
 	-webkit-transform: rotate(2deg);
 	z-index: 4;
 	position: relative;
@@ -120,8 +128,7 @@ h2 {
 }
 
 .polaroid .inner {
-	min-height: 140px;
-	max-height: 180px;
+	height: 150px;
 	background: #666 50% 50% no-repeat;
 	overflow: hidden;
 	position: relative;
@@ -130,8 +137,19 @@ h2 {
 .polaroid.pants .inner {background-image: url(img/empty_pants.png);}
 
 .polaroid img {
-	display: none;
+/*	display: none;*/
 	width: 100%;
+	margin-top: -85px;
+}
+
+.polaroid.pants:not(.mini) .inner {
+	height: 175px;
+}
+
+.polaroid.pants:not(.mini) img {
+	width: 300px;
+	margin-left: -25px;
+	margin-top: -120px;
 }
 
 .polaroid .mask {
@@ -169,6 +187,29 @@ h2 {
 	height: 90px;
 }
 
+.polaroid.mini img {
+	margin-top: -30px;
+}
+
+.polaroid:not(.mini) {
+	-webkit-transition: linear all 0.5s;
+	position: absolute;
+	bottom: 250px;
+	right: 50px;
+}
+
+.polaroid.pants:not(.mini) {
+	bottom: 30px;
+	right: 30px;
+}
+
+.polaroid.move-to-cart {
+	-webkit-transform: rotate(50deg) scale(0.1);
+	opacity: 0;
+	right: 0px;
+	bottom: 0px;
+} 
+
 /*----------------------------------------------------------------
 	UI
 ----------------------------------------------------------------*/
@@ -182,15 +223,21 @@ h2 {
 	position: fixed;
 	bottom: @margin;
 	right: @margin;
+	z-index: 3;
 }
 
 button {
 	border: none;
+	padding: 0;
 }
 
 button.large {
 	min-width: @bt-size;
 	min-height: @bt-size;
+	line-height: @bt-size;
+	color: #fff;
+	.text-shadow;
+	font-size: 30px;
 	background: -webkit-gradient(linear, left top, left bottom, 
 		color-stop(0%,@cl-key-high), 
 		color-stop(48%,@cl-key-mid), 

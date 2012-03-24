@@ -1,4 +1,11 @@
+var shopify = new Shopify;
+
 var app = {
+	
+	currentWear:{
+		shirt:{},
+		pants:{}
+	},
 	
 	preInit:function() {
 		console.log('pre-initializing');
@@ -7,7 +14,7 @@ var app = {
 				app.init();
 			else
 				document.addEventListener("deviceready", app.init, false);
-		}, 250);
+		}, 150);
 	},
 	
 	init:function() {
@@ -39,7 +46,34 @@ var app = {
 	onLoadTemplateComplete:function() {
 		console.log('all templates loaded');
 		// app.showMainView();
-		app.showPickerView();
+		// app.showPickerView();
+		app.loadShopifyData();
+	},
+	
+	loadShopifyData:function() {
+		app.queueCount = 2;
+		app.products = {};
+		
+		shopify.products({ product_type: 'shirt' }, function(e, products) {
+			if (e) throw e;
+			app.products.shirt = products;
+			app.onloadShopifyData(); 
+		} );
+		shopify.products({ product_type: 'pants' }, function(e, products) {
+			if (e) throw e;
+			app.products.pants = products;
+			app.onloadShopifyData();
+		} );
+	},
+	
+	onloadShopifyData:function() {
+		console.log('loading products...' + app.queueCount + ' left');
+
+		app.queueCount--;		
+		if (app.queueCount <= 0) {
+			console.log('all product data loaded');
+			app.showMainView();
+		}
 	},
 	
 	renderView:function(uid, data, animation) {
@@ -48,27 +82,65 @@ var app = {
 		$('body').html( Mustache.to_html(app.template[uid], data) );
 	},
 	
+	/* Helper */
+	
+	findById:function(uid) {
+		for (var key in app.products) {
+			var category = app.products[key];
+			for (var i = 0; i < category.length; i++) {
+				if (category[i].id == uid) {
+					return {product:category[i], type:key};
+				}
+			}
+		}
+		
+		return null;
+	},
+	
+	
+	addToCart:function() {
+		console.log('adding to cart');
+		
+		for (var key in app.currentWear) {
+			var item = app.currentWear[key];
+			
+			app.currentWear[key] = {};
+		}
+		
+		$('.polaroid').addClass('move-to-cart');
+		
+		setTimeout(function() {
+			app.showMainView();
+		}, 500);
+	},
+	
+	
 	/* View specific */
 	
 	showMainView:function() {
 		console.log('displaying main view');
 		
-		app.renderView('main');
+		app.renderView('main', app.currentWear);
 		
-		$('.polaroid').click( function(){
-			app.showPickerView();
-		} );
+		$('.polaroid.shirt').click( function(){ app.showPickerView('shirt');} );
+		$('.polaroid.pants').click( function(){ app.showPickerView('pants');} );
+		$('.add-cart').click( app.addToCart );
+		$('.show-cart').click( app.showCartView );
+		
 	},
 	
-	showPickerView:function() {
+	showPickerView:function(type) {
 		console.log('displaying picker view');
-		var fakeData = {products:[1,2,3,4,5]};
-		app.renderView('picker', fakeData);
+
+		type = type || 'shirt';		
+		var data = {products: app.products[type]};
+		app.renderView('picker', data );
 		
 		$('.back').click( app.showMainView );
-		
-		$('.polaroid').click( function(){
-			// store image
+		$('.polaroid').click( function(e){
+			var uid = $(this).attr('data-id');
+			var item = app.findById(uid);
+			app.currentWear[item.type] = item.product;
 			app.showMainView();
 		} );
 	},
@@ -76,6 +148,8 @@ var app = {
 	showCartView:function() {
 		console.log('displaying cart view');
 		
-	}
+		app.renderView('cart');
 		
+		$('.back').click( app.showMainView );
+	}
 };
