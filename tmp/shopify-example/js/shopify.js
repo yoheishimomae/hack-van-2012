@@ -1,6 +1,7 @@
 (function($) {
     
     var Shopify = function() {
+        this.cart = [];
         this.api = {
             key: '41f8a669781c44fa8c4e89c6a679b2ff',
             password: '3bde77b7df62d3b1ec3a74226ace9179',
@@ -45,5 +46,22 @@
         });
     };
     
+    // add item to cart
+    Shopify.prototype.addToCart = function(product) {
+        this.cart.push(product);
+    };
+    
+    // remove item from cart
+    Shopify.prototype.removeFromCart = function(index) {
+        if (!this.cart[index]) return;
+        this.cart.splice(index, 1);
+    }
+    
+    // list items in cart
+    Shopify.prototype.listCart = function() {
+        return this.cart.slice(0);
+    };
+    
+    // get list of items in cart
     window.Shopify = Shopify;
 })(jQuery);
