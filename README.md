@@ -6,6 +6,11 @@ Accounts
 
 - [hack-van-2012.myshopify.com](http://hack-van-2012.myshopify.com/)
 
+APIs
+----
+
+- [Shopify API](http://api.shopify.com/)
+
 HackVan Links
 -------------
 
