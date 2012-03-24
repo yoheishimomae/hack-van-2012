@@ -9,8 +9,9 @@ var app = {
 	
 	preInit:function() {
 		console.log('pre-initializing');
-		if (navigator.userAgent.search('Mac OS X') > 0 && navigator.userAgent.search(/iphone|ipad/i) == -1)
+		if (navigator.userAgent.search('Mac OS X') > 0 && navigator.userAgent.search(/iphone|ipad/i) == -1) {
 			app.init();
+		}
 		else {
 			document.addEventListener("deviceready", app.init, false);
 		}
@@ -186,9 +187,13 @@ var app = {
 		$('.back').click( app.showMainView );
 		$('.checkout').click( function(e){
 			console.log('checking out');
-			// shopify.checkout();
-			
-			window.plugins.childBrowser.showWebPage('http://apple.com');
+			shopify.checkout(function(url) {
+				window.plugins.childBrowser.showWebPage(url);
+				setTimeout(function() {
+					shopify.clearCart();
+					app.showMainView();
+				}, 1000)
+			});
 		} );
 		$('.cart-item button').click( function(e) {
 			var uid = $(this).attr('data-id');
