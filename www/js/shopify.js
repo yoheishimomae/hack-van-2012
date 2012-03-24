@@ -3,9 +3,9 @@
     var Shopify = function() {
         this.cart = [];
         this.api = {
-            key: '41f8a669781c44fa8c4e89c6a679b2ff',
-            password: '3bde77b7df62d3b1ec3a74226ace9179',
-            url: 'https://API_KEY:API_PASSWORD@hack-van-2012.myshopify.com'
+            key: 'c7df20c29370c557a328ec6ed412f625',
+            password: 'f0c82bb184ef682daf612e893da78278',
+            url: 'https://API_KEY:API_PASSWORD@jacobs-emard7025.myshopify.com'
         };
     };
     
@@ -76,7 +76,7 @@
             items.push( product.variants[0].id + ':1' );
         }
         
-        var url = 'http://hack-van-2012.myshopify.com' + '/cart/' + items.join(',');
+        var url = 'http://jacobs-emard7025.myshopify.com' + '/cart/' + items.join(',');
         callback(url);
     };
     
