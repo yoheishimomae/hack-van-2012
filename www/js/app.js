@@ -170,7 +170,8 @@ var app = {
 	showCartView:function() {
 		console.log('displaying cart view');
 		
-		var data = {products: shopify.listCart()};
+		var total = shopify.total();
+		var data = {products: shopify.listCart(), total:total};
 		app.renderView('cart', data);
 		
 		$('.back').click( app.showMainView );
