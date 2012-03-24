@@ -57,11 +57,36 @@
         this.cart.splice(index, 1);
     }
     
+    // remove all items from cart
+    Shopify.prototype.clearCart = function() {
+        this.cart = [];
+    }
+    
     // list items in cart
     Shopify.prototype.listCart = function() {
         return this.cart.slice(0);
     };
     
+    // generate checkout permalink
+    Shopify.prototype.checkout = function() {
+        for (var i = 0, l = this.cart.length; i < l; i++) {
+            
+        }
+    };
+    
+    // get total price
+    Shopify.prototype.total = function() {
+        var total = 0;
+        for (var i = 0, l = this.cart.length; i < l; i++) {
+            var product = this.cart[i];
+            var value = parseFloat(product.variants.price);
+            total += value;
+        }
+        
+        return total.toFixed(2);
+    };
+    
     // get list of items in cart
     window.Shopify = Shopify;
+    
 })(jQuery);
