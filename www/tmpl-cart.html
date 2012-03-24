@@ -7,13 +7,13 @@
     
     {{#products}}
     
-    <div class="cart-item">
+    <div class="cart-item" id="{{id}}">
         <div class="cart-label">
             <label>by {{vendor}}</label>
             <label>{{#variants}}${{price}}{{/variants}}</label>
         </div>
     
-        <div class="polaroid mini micro" data-id="{{id}}">
+        <div class="polaroid mini micro">
             <div class="inner">
                 <div class="mask"></div>
                 {{#images}}
@@ -21,6 +21,9 @@
                 {{/images}}
             </div>
         </div>
+        
+        <button class="large" data-id="{{index}}"><span class="icon trash"></span></button>
+        
     </div>
     
     <hr/>

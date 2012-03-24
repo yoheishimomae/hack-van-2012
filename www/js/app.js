@@ -171,13 +171,27 @@ var app = {
 		
 		var total = shopify.total();
 		var products = shopify.listCart();
+		// console.log(products, products.length)
+		for (var i = 0; i < products.length; i++) {
+			products[i].index = i;
+			// console.log(i)
+		}
+		// console.log(products)
+		
+		
 		var data = {products:products, item_count:products.length, total:total};
 		app.renderView('cart', data);
 		
 		$('.back').click( app.showMainView );
 		$('.checkout').click( function(e){
-				console.log('checking out');
-				shopify.checkout();
+			console.log('checking out');
+			shopify.checkout();
 		} );
+		$('.cart-item button').click( function(e) {
+			var uid = $(this).attr('data-id');
+			console.log(uid)
+			shopify.removeFromCart(uid);
+			app.showCartView();
+		});
 	}
 };
