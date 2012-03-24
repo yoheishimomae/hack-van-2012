@@ -25,9 +25,10 @@ var app = {
 			{uid:'picker', url:'tmpl-picker.html'}
 		];
 		app.template = {};
-		// window.plugins.childBrowser.onClose = function (){ViewScroller.isOpen = false};
 		
 		app.loadTemplate();
+		
+		setTimeout(function() { navigator.splashscreen.hide(); }, 5000);
 	},
 	
 	loadTemplate:function(r) {
