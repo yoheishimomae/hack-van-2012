@@ -7,13 +7,24 @@
     
     {{#products}}
     
-    <div class="polaroid mini">
-        <div class="inner">
-            <div class="mask"></div>
-        </div>
-        <label>{{price}}</label>
+    <div class="cart-label">
+        <label>by {{vendor}}</label>
+        <label>{{#variants}}${{price}}{{/variants}}</label>
     </div>
     
+    <div class="polaroid mini micro" data-id="{{id}}">
+        <div class="inner">
+            <div class="mask"></div>
+            {{#images}}
+                <img src="{{src}}"/>
+            {{/images}}
+        </div>
+    </div>
+    
+    <hr/>
+    
     {{/products}}
+    
+    <label class="total">${{total-price}}</label>
     
 </div>

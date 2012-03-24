@@ -1,40 +1,42 @@
 <div class="wrap">
     <h2 class="al-right">Create your style</h2>
-    <div class="polaroid shirt">
-        {{^shirt}}
-            <div class="inner">
-                <div class="mask"></div>
-            </div>
-            <label>Shirt</label>
-        {{/shirt}}
-        {{#shirt}}
-            <div class="inner">
-                <div class="mask"></div>
-                {{#images}}<img src="{{src}}"/>{{/images}}
-            </div>
-            <label>Shirt {{#variants}}${{price}}{{/variants}}</label>        
-        {{/shirt}}
-    </div>
-    
-    <div class="polaroid pants">
-        {{^pants}}
-            <div class="inner">
-                <div class="mask"></div>
-            </div>
-            <label>Pants</label>
-        {{/pants}}
-        {{#pants}}
-            <div class="inner">
-                <div class="mask"></div>
-                {{#images}}<img src="{{src}}"/>{{/images}}
-            </div>
-            <label>Pants {{#variants}}${{price}}{{/variants}}</label>        
-        {{/pants}}
-    </div>
+    {{#wear}}
+        <div class="polaroid shirt">
+            {{^shirt}}
+                <div class="inner">
+                    <div class="mask"></div>
+                </div>
+                <label>Shirt</label>
+            {{/shirt}}
+            {{#shirt}}
+                <div class="inner">
+                    <div class="mask"></div>
+                    {{#images}}<img src="{{src}}"/>{{/images}}
+                </div>
+                <label>Shirt {{#variants}}${{price}}{{/variants}}</label>        
+            {{/shirt}}
+        </div>
+
+        <div class="polaroid pants">
+            {{^pants}}
+                <div class="inner">
+                    <div class="mask"></div>
+                </div>
+                <label>Pants</label>
+            {{/pants}}
+            {{#pants}}
+                <div class="inner">
+                    <div class="mask"></div>
+                    {{#images}}<img src="{{src}}"/>{{/images}}
+                </div>
+                <label>Pants {{#variants}}${{price}}{{/variants}}</label>        
+            {{/pants}}
+        </div>
+    {{/wear}}
     
     <div class="button-wrap">
-        <button class="large add-cart">+</button>
-        <button class="large show-cart"></button>
+        <button class="large add-cart" {{^isAddEnabled}}disabled=true{{/isAddEnabled}}><span class="icon"></span></button>
+        <button class="large show-cart" {{^isCartEnabled}}disabled=true{{/isCartEnabled}}><span class="icon"></span></button>
     </div>
 
 </div>
