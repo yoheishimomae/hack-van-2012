@@ -28,6 +28,10 @@ a img{border:none}
 @pol-pad: 8px;
 @margin:	16px;
 
+.text-shadow {
+	text-shadow: rgba(0,0,0,0.6) 0 4px 4px;
+}
+
 /*----------------------------------------------------------------
 	General 
 ----------------------------------------------------------------*/
@@ -35,17 +39,21 @@ a img{border:none}
 
 body {
 /*	font-family: 'MarkerFelt';*/
-	font-family: "Marker Felt", "HelveticaNeue-Light", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
 	font-size: 16px; font-weight: 300;
 	background: url(img/bg.jpg) 0 0 fixed;
+}
+
+body, button {
+	font-family: "Marker Felt", "MarkerFelt", "HelveticaNeue-Light", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	font-weight: 300;
 }
 
 h2 {
 	color: #fff;
 	font-size: 24px;
-	text-shadow: rgba(0,0,0,0.5) 0 4px 8px;
 	margin-bottom: 8px;
 	font-weight: normal;
+	.text-shadow;
 }
 
 .al-right {
@@ -57,14 +65,33 @@ h2 {
 	Header
 ----------------------------------------------------------------*/
 
+@header-h: 48px;
 
+.header {
+	background: -webkit-gradient(linear, left top, left bottom, 
+		color-stop(0%,rgba(133,133,133,0.6)),
+		color-stop(100%,rgba(0,0,0,0.6)));
+	height: @header-h;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #222;
+	box-shadow: rgba(0,0,0,0.5) 0 4px 8px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.has-header {
+	margin-top: @header-h + @margin;
+}
 
 /*----------------------------------------------------------------
 	Views
 ----------------------------------------------------------------*/
 
 .wrap {
-	padding: @margin;
+	padding: @margin @margin @margin*2;
 }
 
 
@@ -131,6 +158,17 @@ h2 {
 	text-align: center;
 }
 
+.polaroid.mini {
+	-webkit-transform: rotate(0deg);
+	display: inline-block;
+	width: 120px;
+}
+
+.polaroid.mini .inner {
+	min-height: 10px;
+	height: 90px;
+}
+
 /*----------------------------------------------------------------
 	UI
 ----------------------------------------------------------------*/
@@ -147,24 +185,49 @@ h2 {
 }
 
 button {
+	border: none;
+}
+
+button.large {
 	min-width: @bt-size;
 	min-height: @bt-size;
 	background: -webkit-gradient(linear, left top, left bottom, 
 		color-stop(0%,@cl-key-high), 
 		color-stop(48%,@cl-key-mid), 
 		color-stop(100%,@cl-key-low));
-	border: none;
 	border-radius: @bt-size/2;
 	box-shadow: rgba(0,0,0,0.5) 0 5px 4px;
 	border-top: #d2eafa 1px solid;
 	border-bottom: #0b202d 1px solid;
 }
 
-button:active {
+button.large:active {
 	background: -webkit-gradient(linear, left top, left bottom, 
 		color-stop(0%, darken( @cl-key-high, 6%) ), 
 		color-stop(48%, darken( @cl-key-mid, 6%) ), 
 		color-stop(100%, darken( @cl-key-low, 6%) ));
+}
+
+.header button {
+	height: 100%;
+	background: transparent;
+	padding: 0;
+	border-right: 1px solid rgba(255,255,255,0.3);
+	line-height: @header-h;
+	font-size: 18px;
+	color: #fff;
+	.text-shadow;
+}
+
+.header button .inner {
+	padding: 0 16px;
+	border-right: 1px solid rgba(0,0,0,0.5);
+	height: 100%;
+	display: block;
+}
+
+.header button:active {
+	background: rgba(0,0,0,0.2);
 }
 
 

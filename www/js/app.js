@@ -38,11 +38,12 @@ var app = {
 	
 	onLoadTemplateComplete:function() {
 		console.log('all templates loaded');
-		showMainView();
+		// app.showMainView();
+		app.showPickerView();
 	},
 	
 	renderView:function(uid, data, animation) {
-		data = data | {};
+		data = data || {};
 		
 		$('body').html( Mustache.to_html(app.template[uid], data) );
 	},
@@ -50,16 +51,30 @@ var app = {
 	/* View specific */
 	
 	showMainView:function() {
+		console.log('displaying main view');
+		
 		app.renderView('main');
 		
-		// add event listeners here
+		$('.polaroid').click( function(){
+			app.showPickerView();
+		} );
 	},
 	
 	showPickerView:function() {
+		console.log('displaying picker view');
+		var fakeData = {products:[1,2,3,4,5]};
+		app.renderView('picker', fakeData);
 		
+		$('.back').click( app.showMainView );
+		
+		$('.polaroid').click( function(){
+			// store image
+			app.showMainView();
+		} );
 	},
 	
 	showCartView:function() {
+		console.log('displaying cart view');
 		
 	}
 		
