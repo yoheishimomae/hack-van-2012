@@ -44,7 +44,8 @@ a img{border:none}
 body {
 /*	font-family: 'MarkerFelt';*/
 	font-size: 16px; font-weight: 300;
-	background: url(img/bg.jpg) 0 0 fixed;
+	background: url(img/bgx2.jpg) 0 0 fixed;
+	background-size: 100% 100%;
 }
 
 body, button {
@@ -237,12 +238,15 @@ hr {
 .polaroid:not(.mini) {
 	position: absolute;
 	bottom: 230px;
-	right: 40px;
+	right: 50%;
+	margin-right: -120px;
 }
 
 .polaroid.pants:not(.mini) {
 	bottom: 30px;
-	right: 50px;
+/*	right: 50px;*/
+	right: 50%;
+	margin-right: -130px;
 }
 
 .polaroid.animate {
